@@ -58,3 +58,5 @@ RUN mkdir source && \
     ./waf build install && \
     cd ../../ && \
     rm -rf source
+
+CMD [ "/home/ardour/5.12/bin/ardour5" ]
