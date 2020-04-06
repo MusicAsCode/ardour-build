@@ -87,3 +87,9 @@ environment, like a normal application.
 2.  Files created by the containerized application have to be stored in host OS file system
 in "normal" places (e.g. $HOME/Music).
 
+# Related
+
+This is early stuff for me, but https://github.com/mviereck/x11docker looks like a great 
+compliment to this.  My intial efforts will certainly attempt to leverage the project to 
+deploy Ardour as a normal looking desktop/X11 application.
+
