@@ -1,0 +1,42 @@
+
+FROM ubuntu:19.10
+LABEL Name=jackd-build Version=0.0.1
+
+RUN apt-get -y update && \
+  apt-get install -y \
+  wget \
+  libarchive-dev \
+  libasound2-dev \
+  libaubio-dev \
+  libboost-all-dev \
+  libcurl4-gnutls-dev \
+  libcwiid-dev \
+  libfftw3-dev \
+  libglib2.0-dev \
+  libgtkmm-2.4-dev \
+  liblilv-dev \
+  liblo-dev \
+  liblrdf0-dev \
+  librubberband-dev \
+  libsamplerate-dev \
+  libserd-dev \
+  libsord-dev \
+  libsratom-dev \
+  libtag1-dev \
+  libxml2-dev \
+  lv2-dev \
+  vamp-plugin-sdk
+
+RUN wget http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz && \
+    tar -xzvf libsndfile-1.0.28.tar.gz libsndfile-1.0.28 && \
+    cd libsndfile-1.0.28 && sh configure && make && make install
+
+RUN wget https://github.com/jackaudio/jack2/releases/download/v1.9.14/v1.9.14.tar.gz && \
+    tar xvzf v1.9.14.tar.gz && \
+    pwd && ls -l && \
+    cd jack2-1.9.14 && \
+    ./waf configure && \
+    ./waf install
+
+ENV LD_LIBRARY_PATH=/usr/local/lib
+CMD ["/usr/local/bin/jackd", "-r", "-d", "alsa", "-r", "44100" ]
