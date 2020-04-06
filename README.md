@@ -48,7 +48,7 @@ of the host system.
 It involves a installing a huge number of dependencies, even if you don't
 compile the application from source, which is what we'll be doing here.
 
-## Downside of Docker
+## Challenges of Coantinerization
 
 So, great, I can contain all of the various dependencies.  I can add all of the compile time
 dependencies, compile from source and then remove those dependencies them from the final container.  
@@ -61,12 +61,19 @@ features that are not always easily accessible from containers.
 
 Each device can be different.  Each specific implementation of the same device interface
 can be different.  Some may be restricted by SE linux rules.  Some by other means.  The 
-vagaries possible inputs and outputs for audio recording/mixing software is vast.  
+vagaries of possible inputs and outputs for audio recording/mixing software is vast.  Dealing
+with these vagaries is hard enough in the host OS.   Containers very often add additional
+layers of complexity on top of those faced by the host OS.
 
-Finally, Ardour is an graphical application, so the container will have to deal with the 
-integrating it into the host desktop GUI environment as well. 
+Finally, Ardour is a graphical application.  The container will have to deal with  
+integrating it into the host desktop GUI environment as well.
 
 # Purpose of This Project
+
+Despite the challenges of containerizing an application like Ardour, the payoffs of doing so
+are huge.  Solving the challenges described about will help improve the understanding of the 
+dependencies for the larger community and perhaps point to ways to improvement on a variety of
+fronts.
 
 This is a fork of what is a very good start on identifying the dependencies to build and run 
 Ardour.  I'd like to move it forward and create a container that will fit into existing Desktop
