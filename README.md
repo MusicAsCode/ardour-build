@@ -50,9 +50,10 @@ compile the application from source, which is what we'll be doing here.
 
 ## Downside of Docker
 
-So, great, I can _contain_ all of the various dependencies.  I can add all of the compile time
+So, great, I can contain all of the various dependencies.  I can add all of the compile time
 dependencies, compile from source and then remove those dependencies them from the final container.  
-I can wrap this super complex application up into a nice neat package.  And that is all true.  
+Basically, I can wrap this really complex application up into a nice neat package.  And that is 
+all true.  
 
 That package still has to run in the host operating system, however.  And for applications
 like audio recording that means application components having access to low level hardware
@@ -71,4 +72,10 @@ With all of the problems it still beats the hell out of the alternative.  The ab
 the dependencies in the course of creating a generalized and resuable conatiner ensures that the
 container can run on as a wide variety of systems as possible.
 
+# Purpose of This Project
+
+This is a fork of what is a very good start on identifying the dependencies to build and run 
+Ardour.  I'd like to move it forward and create a container that will fit into existing Desktop
+environments in as natural a way from a user experience standpoint, but with minimal impact on
+the host OS.
 
