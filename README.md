@@ -63,14 +63,8 @@ Each device can be different.  Each specific implementation of the same device i
 can be different.  Some may be restricted by SE linux rules.  Some by other means.  The 
 vagaries possible inputs and outputs for audio recording/mixing software is vast.  
 
-Finally, Ardour is an X11 application, so the container will have to deal with the graphical issues
-as well.
-
-# So, Why Docker (Again)?
-
-With all of the problems it still beats the hell out of the alternative.  The ability to isolate
-the dependencies in the course of creating a generalized and resuable conatiner ensures that the
-container can run on as a wide variety of systems as possible.
+Finally, Ardour is an graphical application, so the container will have to deal with the 
+integrating it into the host desktop GUI environment as well. 
 
 # Purpose of This Project
 
@@ -78,4 +72,11 @@ This is a fork of what is a very good start on identifying the dependencies to b
 Ardour.  I'd like to move it forward and create a container that will fit into existing Desktop
 environments in as natural a way from a user experience standpoint, but with minimal impact on
 the host OS.
+
+Goals:
+
+1.  Desktop integration.  To the greatest degree the container should look, to the Desktop
+environment, like a normal application.  
+2.  Files created by the containerized application have to be stored in host OS file system
+in "normal" places (e.g. $HOME/Music).
 
